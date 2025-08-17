@@ -1,0 +1,16 @@
+FROM python:3.11-slim
+
+# ตั้ง working directory
+WORKDIR /app
+
+# copy ไฟล์ทั้งหมด
+COPY . /app
+
+# ติดตั้ง dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# expose port
+EXPOSE 8081
+
+# รัน app.py
+CMD ["python", "app.py"]

@@ -1,0 +1,40 @@
+services:
+  db :
+    image : mysql:8.0
+    container_name: mysql_test
+    restart: always
+    environment: 
+      MYSQL_ROOT_PASSWORD: db4test
+      MYSQL_DATABASE: dbtest
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpass
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./mysql_test:/var/lib/mysql
+    
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: pma_test
+    restart: always
+    environment: 
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: db4test
+    ports: 
+      - "9082:80"
+    depends_on:
+      - db
+
+
+  app:
+    build: .
+    container_name: flask_app_test
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8082:8082"
+
+
+

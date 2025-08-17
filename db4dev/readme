@@ -1,0 +1,3 @@
+docker compose -f docker-compose.dev.yml up -d
+docker compose -f docker-compose.dev.yml down -d
+pip install flask sqlalchemy pymysql
