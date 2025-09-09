@@ -1,0 +1,17 @@
+# ไม่เอาไฟล์ build
+/build/
+
+# ไม่เอาไฟล์ .log ทั้งหมด
+*.log
+
+# ไม่เอาไฟล์ config ส่วนตัว
+config.local.json
+
+# ไม่เอา node_modules
+node_modules/
+mysql_test/
+mysql_dev/
+
+
+# ไม่เอาไฟล์ .env
+.env
